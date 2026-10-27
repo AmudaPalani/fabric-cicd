@@ -6,7 +6,7 @@ The goal is to demonstrate how Fabric item definitions can be version-controlled
 
 ## Current status
 
-This repository is a starting point. It does not yet include Fabric item definitions, deployment scripts, or automated workflows. The workflow below describes the intended approach, not an already configured deployment.
+This repository includes a sample Lakehouse, Notebook, and GitHub Actions deployment workflow in `fabric1`. The deployment requires the one-time Azure, Fabric, and GitHub setup below.
 
 ## Prerequisites
 
@@ -33,6 +33,23 @@ Feature availability and supported item types vary. Check the Microsoft document
 6. Configure a deployment approach to promote approved changes to test and production.
 
 Connecting a workspace to Git does not by itself configure automated deployments.
+
+## Automated deployment
+
+[.github/workflows/deploy-fabric.yml](.github/workflows/deploy-fabric.yml) deploys the `fabric1` Lakehouse and Notebook to a Fabric workspace when changes to `fabric1` are pushed to `main`. It can also be run manually.
+
+### One-time setup
+
+1. Create a Microsoft Entra app registration or user-assigned managed identity.
+2. Add a GitHub federated credential for this repository and the `fabric-dev` environment.
+3. Allow service principals to use Fabric APIs in Fabric tenant settings, if required by your tenant.
+4. Add the identity to the target Fabric workspace as **Contributor** or higher.
+5. In GitHub, create an environment named `fabric-dev` with:
+   - Secret `AZURE_CLIENT_ID`: the identity client ID.
+   - Secret `AZURE_TENANT_ID`: the Microsoft Entra tenant ID.
+   - Variable `FABRIC_WORKSPACE_ID`: the target workspace ID.
+
+The workflow publishes items without deleting other workspace items. After the first deployment, attach `lh_sales_cicd` as the notebook default Lakehouse if Fabric has not bound it automatically.
 
 ## Intended CI/CD workflow
 
@@ -69,7 +86,7 @@ fabric-cicd/
     `-- workflows/        # GitHub Actions CI/CD workflows
 ```
 
-Only this README is currently provided. The other folders are suggestions and are not required by Fabric.
+The sample uses `fabric1` for Fabric item definitions instead of `fabric`.
 
 ## Security and deployment considerations
 
