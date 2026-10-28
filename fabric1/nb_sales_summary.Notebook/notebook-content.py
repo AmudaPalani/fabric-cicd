@@ -13,7 +13,7 @@
 
 version = "v2"
 
-sales = {"East": 1500, "West": 1950, "North": 1200}
+sales = {"East": 1500, "West": 1950, "North": 1200, "South": 2300}
 
 print(f"Sales report {version}")
 for region, total in sales.items():
