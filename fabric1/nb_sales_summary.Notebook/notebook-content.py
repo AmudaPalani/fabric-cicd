@@ -11,9 +11,9 @@
 
 # CELL ********************
 
-version = "v1"
+version = "v2"
 
-sales = {"East": 1500, "West": 1950}
+sales = {"East": 1500, "West": 1950, "North": 1200}
 
 print(f"Sales report {version}")
 for region, total in sales.items():
