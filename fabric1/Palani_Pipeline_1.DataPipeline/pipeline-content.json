@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Office365Email1",
+        "type": "Office365Email",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "to": "amudhaselvapalani@gmail.com",
+          "subject": "Test pipeline",
+          "body": "<p>Test</p>"
+        },
+        "externalReferences": {
+          "connection": "98a317b9-565c-4d2d-9c01-7611f94b1665"
+        }
+      }
+    ]
+  }
+}

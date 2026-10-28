@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Palani_Pipeline_1"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "22b38637-fd26-4944-a7f7-4eefdbd427f8"
+  }
+}
