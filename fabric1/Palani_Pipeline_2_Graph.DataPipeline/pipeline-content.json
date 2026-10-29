@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Web1",
+        "type": "WebActivity",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "relativeUrl": "v1.0/users/admin@diax53694730.onmicrosoft.com/sendMail",
+          "body": {
+            "message": {
+              "subject": "Test pipeline (Graph)",
+              "body": {
+                "contentType": "HTML",
+                "content": "<p>Test</p>"
+              },
+              "toRecipients": [
+                {
+                  "emailAddress": {
+                    "address": "AadiK@DIAx53694730.OnMicrosoft.com"
+                  }
+                }
+              ]
+            },
+            "saveToSentItems": false
+          }
+        },
+        "externalReferences": {
+          "connection": "411af51b-39b8-40fe-b622-ec852c226674"
+        }
+      }
+    ]
+  }
+}
